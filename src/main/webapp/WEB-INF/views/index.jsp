@@ -35,9 +35,6 @@
             background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23ecf0f1' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
             background-size: cover;
         }
-        .navbar-nav {
-            display: none; /* 기본적으로 메뉴는 보이지 않음 */
-        }
         .offcanvas {
             background-color: #2c3e50; /* 어두운 블루/그레이 */
             color: #ecf0f1; /* 밝은 회색 텍스트 */
@@ -71,7 +68,7 @@
 </head>
 <body>
 <nav class="navbar">
-    <a class="navbar-brand" href="#">muk</a>
+    <a class="navbar-brand" href="#">Listaurant</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -84,7 +81,7 @@
     <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
             <li class="nav-item">
-                <a class="nav-link" href="#">로그인</a>
+                <a class="nav-link" href="/login">로그인</a>
             </li>
         </ul>
     </div>

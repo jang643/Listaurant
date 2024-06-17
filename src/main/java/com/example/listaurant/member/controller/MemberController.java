@@ -5,6 +5,7 @@ import com.example.listaurant.member.controller.request.SignUpRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,14 +23,11 @@ public class MemberController {
     }
 
     @GetMapping("/sign-up")
-    public String signUpPage(){
+    public String signUpPage(Model model){
+        model.addAttribute("signUpRequest", new SignUpRequest());
         return "sign-up";
     }
 
-    @GetMapping("/main")
-    public String main(){
-        return "main";
-    }
     @PostMapping("/sign-up")
     public String signUp(@ModelAttribute SignUpRequest signUpRequest){
         log.info("SignUpRequest = {}",signUpRequest);

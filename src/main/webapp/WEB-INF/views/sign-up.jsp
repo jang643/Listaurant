@@ -159,27 +159,32 @@
 
 
 <main class="form-signin w-100 m-auto">
-    <form action="/sign-up" method="post">
-        <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
-        <div class="form-floating">
-            <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+    <form:form action="/sign-up" method="post" modelAttribute="signUpRequest">
+        <img class="mb-4" src="assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+        <div class="form-floating mb-3">
+            <form:input type="email" path="email" class="form-control" id="floatingInput" placeholder="name@example.com"/>
             <label for="floatingInput">Email address</label>
         </div>
-        <div class="form-floating">
-            <input type="password" name="passwd" class="form-control" id="Password" placeholder="Password">
+
+        <div class="form-floating mb-3">
+            <form:password path="passwd" class="form-control" id="Password" placeholder="Password"/>
             <label for="Password">Password</label>
         </div>
-        <div class="form-floating">
-            <input type="password" class="form-control" id="check-floatingPassword" placeholder="Password">
+
+        <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="check-floatingPassword" placeholder="Password"/>
             <label for="check-floatingPassword">Password-Check</label>
         </div>
-        <div class="form-floating">
-            <input type="tel" name="pno" class="form-control" id="Phone-Number" placeholder="Phone-Number">
+
+        <div class="form-floating mb-3">
+            <form:input type="tel" path="pno" class="form-control" id="Phone-Number" placeholder="Phone-Number"/>
             <label for="Phone-Number">Phone-Number</label>
         </div>
+
         <button class="btn btn-primary w-100 py-2" type="submit">Sign up</button>
         <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2024</p>
-    </form>
+    </form:form>
+
 </main>
 <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
 
