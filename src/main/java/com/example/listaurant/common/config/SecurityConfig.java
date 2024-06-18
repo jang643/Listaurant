@@ -1,5 +1,6 @@
 package com.example.listaurant.common.config;
 
+import jakarta.servlet.DispatcherType;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -16,7 +17,9 @@ public class SecurityConfig {
                         .requestMatchers(
                                 "/css/**","/assets/**","/images/**","/webjars/**").permitAll()
                         .requestMatchers("/","/sign-up").permitAll()
-                        .anyRequest().permitAll()
+                                .dispatcherTypeMatchers(DispatcherType.FORWARD).permitAll()
+                                .dispatcherTypeMatchers(DispatcherType.INCLUDE).permitAll()
+                        .anyRequest().authenticated()
                         )
                 .formLogin(formlogin -> formlogin
                         .loginPage("/login").permitAll()
