@@ -17,4 +17,6 @@ public interface MemberService {
     Optional<MemberEntity> findById(Long id);
 
     void update(UpdateRequest updateRequest);
+
+    void delete(Long id);
 }

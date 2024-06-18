@@ -14,4 +14,6 @@ public interface MemberRepository {
     Optional<MemberEntity> findById(Long id);
 
     void update(MemberEntity memberEntity);
+
+    void delete(Long id);
 }

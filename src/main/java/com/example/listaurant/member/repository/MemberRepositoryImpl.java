@@ -31,4 +31,9 @@ public class MemberRepositoryImpl implements MemberRepository {
     public void update(MemberEntity memberEntity) {
         memberMapper.update(memberEntity);
     }
+
+    @Override
+    public void delete(Long id) {
+        memberMapper.delete(id);
+    }
 }

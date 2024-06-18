@@ -34,6 +34,7 @@
                             <input type="tel" class="form-control" id="pno"  readonly placeholder="${member.pno}">
                         </div>
                     <button type="button" class="btn btn-secondary"><a style="color: white; text-decoration-line: none" class="btn-primary" href="/mypage/${member.memberId}">EDIT</a></button>
+                    <button type="button" class="btn btn-danger mt-3" onclick="confirmDeletion()">회원 탈퇴</button>
                 </div>
             </div>
         </div>
@@ -41,5 +42,12 @@
 </div>
 
 <script src="bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    function confirmDeletion() {
+        if (confirm("회원탈퇴 하시겠습니까?")) {
+            window.location.href = "/mypage/delete";
+        }
+    }
+</script>
 </body>
 </html>

@@ -54,4 +54,9 @@ public class MemberServiceImpl implements MemberService {
         memberRepository.update(MemberEntity.builder().memberId(updateRequest.getMemberId())
                 .pno(updateRequest.getPno()).build());
     }
+
+    @Override
+    public void delete(Long id) {
+        memberRepository.delete(id);
+    }
 }

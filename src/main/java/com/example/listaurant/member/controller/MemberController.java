@@ -9,19 +9,12 @@ import com.example.listaurant.member.service.MemberDetails;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.context.SecurityContext;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import java.util.Optional;
 
 @Controller
 @Slf4j
@@ -77,12 +70,17 @@ public class MemberController {
 
     @PostMapping("/mypage/update")
     public String update(@AuthenticationPrincipal MemberDetails memberDetails, @Valid @ModelAttribute UpdateRequest updateRequest, BindingResult br) {
-        log.info("updateRequest = {}", updateRequest.getPno());
         if (br.hasErrors()) {
             return "mypage-edit";
         }
         updateRequest.setMemberId(memberDetails.getId());
         memberService.update(updateRequest);
         return "redirect:/mypage";
+    }
+
+    @PostMapping("/mypage/delete")
+    public String delete(@AuthenticationPrincipal MemberDetails memberDetails){
+        memberService.delete(memberDetails.getId());
+        return "redirect:/";
     }
 }
