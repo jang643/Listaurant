@@ -100,7 +100,20 @@
             display: block !important;
         }
     </style>
-
+    <script>
+        function validateForm() {
+            const password = document.getElementById("Password").value;
+            const confirmPassword = document.getElementById("check-floatingPassword").value;
+            const errorElement = document.getElementById("passwordCheckError");
+            console.log(password, confirmPassword, errorElement)
+            if (password !== confirmPassword) {
+                errorElement.textContent = "패스워트가 일치하지 않습니다.";
+                return false;
+            } else {
+                return true;
+            }
+        }
+    </script>
 
     <!-- Custom styles for this template -->
     <link href="css/login.css" rel="stylesheet">
@@ -160,7 +173,7 @@
 
 <main class="form-signin w-100 m-auto">
 
-    <form:form action="/sign-up" method="post" modelAttribute="signUpRequest">
+    <form:form onsubmit="return validateForm()" action="/sign-up" method="post" modelAttribute="signUpRequest">
         <img class="mb-4" src="assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
         <div class="form-floating mb-3">
             <form:input type="email" path="email" class="form-control" id="floatingInput" placeholder="name@example.com"/>
@@ -169,7 +182,7 @@
         </div>
         <spring:hasBindErrors name="signUpRequest">
             <c:forEach var="error" items="${errors.globalErrors}">
-                <div class="error">${error.defaultMessage}</div>
+                <div class="error" style="color : red">${error.defaultMessage}</div>
             </c:forEach>
         </spring:hasBindErrors>
         <div class="form-floating mb-3">
@@ -181,6 +194,7 @@
         <div class="form-floating mb-3">
             <input type="password" class="form-control" id="check-floatingPassword" placeholder="Password"/>
             <label for="check-floatingPassword">Password-Check</label>
+            <div id="passwordCheckError" style="color: red;"></div>
         </div>
 
         <div class="form-floating mb-3">
