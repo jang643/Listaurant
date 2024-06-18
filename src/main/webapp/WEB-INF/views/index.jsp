@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listaurant 페이지</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/kakaomap.css">
     <style>
         body {
             background-color: #f5f5f5; /* 밝은 회색 배경 */
@@ -34,6 +35,10 @@
             display: block;
             background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23ecf0f1' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
             background-size: cover;
+        }
+        .navbar-nav {
+            display: flex; /* 변경: 메뉴가 보이도록 수정 */
+            flex-direction: column;
         }
         .offcanvas {
             background-color: #2c3e50; /* 어두운 블루/그레이 */
@@ -83,12 +88,37 @@
             <li class="nav-item">
                 <a class="nav-link" href="/login">로그인</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/sign-up">회원가입</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">내 정보</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">로그아웃</a>
+            </li>
         </ul>
     </div>
 </div>
-<div class="search-container">
-    <input type="text" class="form-control" placeholder="검색어를 입력하세요...">
+<div class="map_wrap">
+    <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
+    <a href="javascript:" class="btn_comm btn_resetMap" onclick="setCurrentPosition()"><span class="screen_out">현재 위치</span></a>
+    <div id="menu_wrap" class="bg_white">
+        <div class="option">
+            <div>
+                <form onsubmit="searchPlaces(); return false;">
+                    키워드 : <input type="text" value="맛집" id="keyword" size="15">
+                    <button type="submit">검색하기</button>
+                </form>
+            </div>
+        </div>
+        <hr>
+        <ul id="placesList"></ul>
+        <div id="pagination"></div>
+    </div>
 </div>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4248f25bd845e2975d9354631e11d18c&libraries=services,clusterer,drawing,Marker"></script>
+<script src="js/kakaomap.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

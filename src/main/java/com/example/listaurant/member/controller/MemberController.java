@@ -35,9 +35,7 @@ public class MemberController {
     public String signUp(@Valid @ModelAttribute SignUpRequest signUpRequest , BindingResult br){
 
         if(memberService.isDuplicationEmail(signUpRequest.getEmail())){
-            log.info("이메일 중복 ={}", signUpRequest.getEmail());
             br.reject("globalError","이미 존재하는 사용자입니다.");
-            log.info("br.global = {}",br);
             return "sign-up";
         }
         if(br.hasErrors()){
