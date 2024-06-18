@@ -1,11 +1,14 @@
 package com.example.listaurant.member.controller;
 
 import com.example.listaurant.member.controller.port.MemberService;
+import com.example.listaurant.member.controller.request.PwdUpdateRequest;
 import com.example.listaurant.member.controller.request.SignUpRequest;
 import com.example.listaurant.member.controller.request.UpdateRequest;
 import com.example.listaurant.member.controller.response.MemberResponse;
+import com.example.listaurant.member.domain.Member;
 import com.example.listaurant.member.repository.MemberEntity;
 import com.example.listaurant.member.service.MemberDetails;
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -69,7 +72,7 @@ public class MemberController {
     }
 
     @PostMapping("/mypage/update")
-    public String update(@AuthenticationPrincipal MemberDetails memberDetails, @Valid @ModelAttribute UpdateRequest updateRequest, BindingResult br) {
+    public String updatePhoneNumber(@AuthenticationPrincipal MemberDetails memberDetails, @Valid @ModelAttribute UpdateRequest updateRequest, BindingResult br) {
         if (br.hasErrors()) {
             return "mypage-edit";
         }
@@ -78,9 +81,20 @@ public class MemberController {
         return "redirect:/mypage";
     }
 
-    @PostMapping("/mypage/delete")
-    public String delete(@AuthenticationPrincipal MemberDetails memberDetails){
+    @GetMapping("/mypage/delete")
+    public String delete(@AuthenticationPrincipal MemberDetails memberDetails, HttpSession session){
         memberService.delete(memberDetails.getId());
+        session.invalidate();
         return "redirect:/";
     }
+//    @PostMapping("/mypage/password-update")
+//    public String updatePassword(@AuthenticationPrincipal MemberDetails memberDetails, @Valid @ModelAttribute PwdUpdateRequest pwdUpdateRequest
+//            , BindingResult br){
+//        if(br.hasErrors()){
+////            return
+//        }
+//
+//        return null
+//    }
+
 }
