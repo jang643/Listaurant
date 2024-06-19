@@ -35,7 +35,7 @@
                     <div class="d-flex justify-content-between align-items-center">
                         <div>
                             <button type="button" class="btn btn-secondary"><a style="color: white; text-decoration-line: none" class="btn-primary" href="/mypage/${member.memberId}">EDIT</a></button>
-                            <button type="button" class="btn btn-primary" >비밀번호변경</button>
+                            <button type="button" class="btn btn-primary" ><a style="color: white; text-decoration-line: none" class="btn-primary" href="/mypage/password-update">비밀번호 변경</a></button>
                         </div>
                         <button type="button" class="btn btn-danger" onclick="confirmDeletion()">회원 탈퇴</button>
                     </div>

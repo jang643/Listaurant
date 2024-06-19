@@ -7,6 +7,8 @@ import lombok.Data;
 @Data
 public class PwdUpdateRequest {
 
+    private Long memberId;
+
     @NotBlank(message = "필수입력 값 입니다.")
     @Pattern(
             regexp = "^(?=.*[!@#$%^&*(),.?\":{}|<>]).{8,}$",
