@@ -22,6 +22,13 @@
         #container.view_map #btnMap {display: none;}
         #container.view_roadview #mapWrapper {z-index: 0;}
         #container.view_roadview #btnRoadview {display: none;}
+        .comments-container {
+            display: flex;
+            flex-direction: column;
+        }
+        .comment {
+            flex: 1; /* 모든 comment 요소의 높이를 균등하게 설정 */
+        }
     </style>
 </head>
 <body>
@@ -125,13 +132,23 @@
                 <h2>댓글 리스트 (${countComments})</h2>
             </div>
             <div class="card-body">
+                <div class="comments-container">
                 <c:forEach var="comment" items="${comments}">
                     <div class="comment">
                         <p>${comment.text}</p>
-                        <small>${comment.nickname} - ${comment.writtenDate} - ${comment.scope}</small>
+                        <small class="d-flex justify-content-between align-items-center">
+                             <span>
+                                ${comment.nickname} - ${comment.writtenDate} - ${comment.scope}
+                             </span>
+                            <span class="d-flex align-items-center">
+                                <a href="/recommend"><img src="images/reicon.png" alt="" width="20" height="20" class="me-1"/></a>
+                                ${comment.recommend}
+                            </span>
+                        </small>
                         <hr>
                     </div>
                 </c:forEach>
+                </div>
             </div>
         </div>
 
