@@ -1,7 +1,6 @@
 package com.example.listaurant.member.service;
 
 import com.example.listaurant.member.controller.port.MemberService;
-import com.example.listaurant.member.infra.MemberEntity;
 import com.example.listaurant.member.service.dto.MemberDto;
 import com.example.listaurant.member.service.port.MailSender;
 import com.example.listaurant.member.service.port.MemberRepository;
