@@ -21,7 +21,7 @@ CREATE TABLE txt (
   FOREIGN KEY (member_id) REFERENCES member(member_id)
 );
 
-create table recommendCheck)
+create table recommend_check(
     txt_id Int,
     member_id INT,
     FOREIGN KEY (member_id) REFERENCES member(member_id),

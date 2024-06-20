@@ -1,6 +1,29 @@
 package com.example.listaurant.recommned.service;
 
-import com.example.listaurant.recommned.controller.port.RecommentService;
+import com.example.listaurant.recommned.controller.port.RecommendService;
+import com.example.listaurant.recommned.service.dto.RecommendDto;
+import com.example.listaurant.recommned.service.port.RecommendRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
-public class RecommendServiceImpl implements RecommentService {
+@Service
+@RequiredArgsConstructor
+public class RecommendServiceImpl implements RecommendService {
+
+    private final RecommendRepository recommendRepository;
+
+    @Override
+    public boolean isRecommendPresent(RecommendDto recommendDto) {
+        return recommendRepository.findByTxtIdAndMemberId(recommendDto).isPresent();
+    }
+
+    @Override
+    public void save(RecommendDto recommendDto) {
+        recommendRepository.save(recommendDto);
+    }
+
+    @Override
+    public void delete(RecommendDto recommendDto) {
+        recommendRepository.delete(recommendDto);
+    }
 }
