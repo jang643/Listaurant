@@ -8,11 +8,11 @@
         insert into recommend_check (txt_id, member_id)
         values (#{txt_id}, #{member_id} )
     </insert>
-    <select id="findByTxtIdAndMemberId" parameterType="MemberEntity" resultType="MemberEntity">
+    <select id="findByTxtIdAndMemberId" parameterType="RecommendEntity" resultType="RecommendEntity">
         select * from member
         where txt_id = #{txt_id} and member_id = #{memberId}
     </select>
-    <delete id="delete" parameterType="MemberEntity">
+    <delete id="delete" parameterType="RecommendEntity">
         delete from member where txt_id = #{txt_id} and member_id = #{memberId}
     </delete>
 </mapper>
