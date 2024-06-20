@@ -3,7 +3,6 @@ package com.example.listaurant.member.controller;
 import com.example.listaurant.member.controller.port.MemberService;
 import com.example.listaurant.member.controller.request.SignUpRequest;
 import com.example.listaurant.member.controller.response.DuplicationCheckResponse;
-import com.example.listaurant.member.infra.MemberEntity;
 import com.example.listaurant.member.service.dto.MemberDto;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -67,8 +66,8 @@ public class MemberController {
             }
             return new DuplicationCheckResponse( "사용가능한 닉네임입니다.",false);
         }else {
-            MemberEntity memberEntity = memberService.findById(memberId).get();
-            if(memberEntity.getNickname().equals(nickname)){
+            MemberDto memberDto = memberService.findById(memberId).get();
+            if(memberDto.getNickname().equals(nickname)){
                 return new DuplicationCheckResponse( "사용가능한 닉네임입니다.",false);
             }else{
                 if(memberService.isDuplicationNickname(nickname)){

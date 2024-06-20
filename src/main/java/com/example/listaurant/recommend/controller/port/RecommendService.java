@@ -1,6 +1,6 @@
-package com.example.listaurant.recommned.controller.port;
+package com.example.listaurant.recommend.controller.port;
 
-import com.example.listaurant.recommned.service.dto.RecommendDto;
+import com.example.listaurant.recommend.service.dto.RecommendDto;
 
 public interface RecommendService {
 

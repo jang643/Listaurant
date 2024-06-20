@@ -1,9 +1,9 @@
 package com.example.listaurant;
 
 
-import com.example.listaurant.member.infra.MemberEntity;
 import com.example.listaurant.member.service.MemberDetails;
 import com.example.listaurant.member.controller.port.MemberService;
+import com.example.listaurant.member.service.dto.MemberDto;
 import com.example.listaurant.txt.controller.port.TxtService;
 import com.example.listaurant.txt.controller.request.CommentRequest;
 import com.example.listaurant.txt.controller.response.TxtResponse;
@@ -72,9 +72,9 @@ public class IndexController {
         double tmpLat = commentRequest.getLat();
         double tmpLng = commentRequest.getLng();
 
-        MemberEntity memberEntity = memberService.findById(memberDetails.getId()).get();
-        commentRequest.setMemberId(memberEntity.getMemberId());
-        commentRequest.setNickname(memberEntity.getNickname());
+        MemberDto memberDto = memberService.findById(memberDetails.getId()).get();
+        commentRequest.setMemberId(memberDto.getMemberId());
+        commentRequest.setNickname(memberDto.getNickname());
         commentRequest.setWrittenDate(LocalDateTime.now());
         commentRequest.setLat(changeNum(commentRequest.getLat()));
         commentRequest.setLng(changeNum(commentRequest.getLng()));

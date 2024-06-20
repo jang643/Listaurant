@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.example.listaurant.recommned.reposiroty.RecommendEntity">
+<mapper namespace="com.example.listaurant.recommend.repository.RecommendEntity">
     <insert id="save" parameterType="RecommendEntity">
         insert into recommend_check (txt_id, member_id)
         values (#{txt_id}, #{member_id} )
