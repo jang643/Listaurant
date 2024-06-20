@@ -1,4 +1,4 @@
-package com.example.listaurant.recommned.controller.response;
+package com.example.listaurant.recommend.controller.response;
 
 public class RecommendCheckResponse {
 

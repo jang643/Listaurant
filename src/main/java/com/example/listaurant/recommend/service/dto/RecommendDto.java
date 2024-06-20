@@ -1,4 +1,4 @@
-package com.example.listaurant.recommned.service.dto;
+package com.example.listaurant.recommend.service.dto;
 
 import lombok.Builder;
 import lombok.Getter;

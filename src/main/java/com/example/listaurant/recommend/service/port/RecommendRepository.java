@@ -1,7 +1,7 @@
-package com.example.listaurant.recommned.service.port;
+package com.example.listaurant.recommend.service.port;
 
-import com.example.listaurant.recommned.reposiroty.RecommendEntity;
-import com.example.listaurant.recommned.service.dto.RecommendDto;
+import com.example.listaurant.recommend.repository.RecommendEntity;
+import com.example.listaurant.recommend.service.dto.RecommendDto;
 
 import java.util.Optional;
 

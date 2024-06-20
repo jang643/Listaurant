@@ -1,6 +1,6 @@
-package com.example.listaurant.recommned.reposiroty;
+package com.example.listaurant.recommend.repository;
 
-import com.example.listaurant.recommned.service.dto.RecommendDto;
+import com.example.listaurant.recommend.service.dto.RecommendDto;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;

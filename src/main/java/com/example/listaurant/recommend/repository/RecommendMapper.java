@@ -1,4 +1,4 @@
-package com.example.listaurant.recommned.reposiroty;
+package com.example.listaurant.recommend.repository;
 
 import org.apache.ibatis.annotations.Mapper;
 

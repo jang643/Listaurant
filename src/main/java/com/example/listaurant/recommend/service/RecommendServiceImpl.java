@@ -1,8 +1,8 @@
-package com.example.listaurant.recommned.service;
+package com.example.listaurant.recommend.service;
 
-import com.example.listaurant.recommned.controller.port.RecommendService;
-import com.example.listaurant.recommned.service.dto.RecommendDto;
-import com.example.listaurant.recommned.service.port.RecommendRepository;
+import com.example.listaurant.recommend.controller.port.RecommendService;
+import com.example.listaurant.recommend.service.dto.RecommendDto;
+import com.example.listaurant.recommend.service.port.RecommendRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

@@ -25,7 +25,7 @@ public class MemberServiceImpl implements MemberService {
     @Override
     public void save(MemberDto memberDto) {
         memberDto.setPasswd(passwordEncoder.encode(memberDto.getPasswd()));
-        memberRepository.save(MemberEntity.from(memberDto));
+        memberRepository.save(memberDto);
     }
 
     @Transactional(readOnly = true)
@@ -42,19 +42,19 @@ public class MemberServiceImpl implements MemberService {
 
     @Transactional(readOnly = true)
     @Override
-    public Optional<MemberEntity> findByEmail(String email) {
+    public Optional<MemberDto> findByEmail(String email) {
         return memberRepository.findByEmail(email);
     }
     @Transactional(readOnly = true)
     @Override
-    public Optional<MemberEntity> findById(Long id) {
+    public Optional<MemberDto> findById(Long id) {
         return memberRepository.findById(id);
     }
 
     @Override
     @Transactional
     public void update(MemberDto memberDto) {
-        memberRepository.update(MemberEntity.from(memberDto));
+        memberRepository.update(memberDto);
     }
 
     @Override
@@ -69,9 +69,9 @@ public class MemberServiceImpl implements MemberService {
         String uuid = UUID.randomUUID().toString();
         mailSender.send(memberDto.getEmail(), uuid);
         if(isDuplicationEmail(memberDto.getEmail())){
-            MemberEntity memberEntity = memberRepository.findByEmail(memberDto.getEmail()).get();
-            memberEntity.setPasswd(passwordEncoder.encode(uuid));
-            memberRepository.update(memberEntity);
+            memberDto = memberRepository.findByEmail(memberDto.getEmail()).get();
+            memberDto.setPasswd(passwordEncoder.encode(uuid));
+            memberRepository.update(memberDto);
         }
     }
 }
