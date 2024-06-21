@@ -50,8 +50,8 @@ public class IndexController {
 
         // 모델에 필요한 데이터 추가
         if (memberDetails != null){
-            MemberEntity memberEntity = memberService.findById(memberDetails.getId()).get();
-            model.addAttribute("memberId", memberEntity.getMemberId());
+            MemberDto memberDto = memberService.findById(memberDetails.getId()).get();
+            model.addAttribute("memberId", memberDto.getMemberId());
         }
         model.addAttribute("title", title);
         model.addAttribute("lat", lat);
