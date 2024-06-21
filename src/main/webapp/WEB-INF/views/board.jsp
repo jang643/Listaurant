@@ -141,7 +141,7 @@
                                 ${comment.nickname} - ${comment.writtenDate} - ${comment.scope}
                              </span>
                             <span class="d-flex align-items-center">
-                                <a href="/recommend"><img src="images/reicon.png" alt="" width="20" height="20" class="me-1"/></a>
+                                <a href="/recommend?txtId=${comment.txtId}&memberId=${memberId}}"><img id="recommend" src="images/reicon.png" alt="" width="20" height="20" class="me-1"/></a>
                                 ${comment.recommend}
                             </span>
                         </small>
