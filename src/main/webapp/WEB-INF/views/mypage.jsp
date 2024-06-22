@@ -69,8 +69,29 @@
                                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                                 <button type="submit" class="btn btn-danger btn-sm">삭제</button>
                             </form>
-                            <button type="submit" class="btn btn-primary btn-sm">수정</button>
-                            <hr>
+                            <button type="button" class="btn btn-primary btn-sm" onclick="showForm(${comment.txtId})">수정</button>
+                        </div>
+                        <div style="display: none; margin-top: 0.5rem" id ="show-updateform-${comment.txtId}">
+                            <form action="/mypage/comment-update" method="post">
+                                <input type="hidden" name="txtId" value="${comment.txtId}"/>
+                                <div class="form-group">
+                                    <textarea class="form-control" name="text">${comment.text}</textarea>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="re_rating">별점을 매겨주세요:</label>
+                                    <div id="re_rating" class="d-flex justify-content-center">
+                                        <c:forEach var="i" begin="1" end="5">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="scope" id="rating${i}" value="${i}" ${comment.scope eq i ? 'checked' : ''}>
+                                                <label class="form-check-label" for="rating${i}">${i}</label>
+                                            </div>
+                                        </c:forEach>
+                                    </div>
+                                </div>
+                                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                                <button type="submit" class="btn btn-primary btn-sm">수정하기</button>
+                                <button type="button" class="btn btn-secondary btn-sm" onclick="cancelFrom(${comment.txtId})">취소하기</button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -79,6 +100,12 @@
     </div>
 </div>
     <script>
+        function showForm(txtId){
+                document.getElementById("show-updateform-"+txtId).style.display = "block"
+        }
+        function cancelFrom(txtId){
+                document.getElementById("show-updateform-"+txtId).style.display = "none"
+        }
     function confirmDeletion() {
         if (confirm("회원탈퇴 하시겠습니까?")) {
             window.location.href = "/mypage/delete";
