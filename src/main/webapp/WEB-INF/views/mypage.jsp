@@ -63,6 +63,15 @@
                         <p>  별점 : ${comment.scope}</p>
                         <p class="card-text">${comment.text}</p>
                         <p>${comment.writtenDate}</p>
+                        <div class="comment d-flex align-items-center">
+                            <form action="/mypage/comment-delete" method="post" onsubmit="return confirmTxtDeletion();">
+                                <input type="hidden" name="commentId" value="${comment.txtId}"/>
+                                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                                <button type="submit" class="btn btn-danger btn-sm">삭제</button>
+                            </form>
+                            <button type="submit" class="btn btn-primary btn-sm">수정</button>
+                            <hr>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -74,6 +83,10 @@
         if (confirm("회원탈퇴 하시겠습니까?")) {
             window.location.href = "/mypage/delete";
         }
+    }
+
+    function confirmTxtDeletion() {
+        return confirm("정말로 삭제하시겠습니까?");
     }
 </script>
 </body>

@@ -86,4 +86,9 @@ public class MypageController {
         return "redirect:/mypage";
     }
 
+    @PostMapping("/comment-delete")
+    public String textDeleteMypage(@RequestParam("commentId") long txtId) {
+        txtService.deleteTxt(txtId);
+        return "redirect:/mypage";
+    }
 }
