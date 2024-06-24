@@ -141,7 +141,7 @@
         <!-- 댓글 리스트 추가 부분 -->
         <div class="card my-5">
             <div class="card-header d-flex justify-content-between align-items-center">
-                <h2>댓글 리스트 (${countComments})</h2>
+                <h2>댓글 목록 (${countComments})</h2>
                 <div class="d-flex">
                     <button id="recentCommentsBtn" class="btn btn-primary me-2">최신순</button>
                     <button id="popularCommentsBtn" class="btn btn-primary">인기순</button>
