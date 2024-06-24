@@ -71,7 +71,7 @@ public class TxtController {
         return "board";
     }
 
-    @PostMapping("/comment")
+    @GetMapping("/comment")
     public String textSave(@Valid @ModelAttribute CommentRequest commentRequest,
                            @AuthenticationPrincipal MemberDetails memberDetails,
                            RedirectAttributes redirectAttributes) {
